@@ -1,5 +1,5 @@
 angular.module('yeoAppApp.services', [])
-  .controller('flickrAPIservice', ['$scope', '$http', function ($scope, $http) {
+  .controller('FlickrController', ['$scope', '$http', function ($scope, $http) {
     $scope.master = {};
       $scope.images = {};
 
@@ -47,4 +47,4 @@ angular.module('yeoAppApp.services', [])
         $scope.searchCriteria = {};
       };
 
-    }]);
+}]);

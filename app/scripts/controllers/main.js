@@ -15,4 +15,7 @@ angular.module('yeoAppApp')
       'Karma',
       'Mangos'
     ];
+    $scope.search  = function(custom) {
+      $scope.custom = custom;
+    };
   });

@@ -1,10 +1,16 @@
 <div class="row marketing">
-  <h4>HTML5 Boilerplate</h4>
+  <h4>Angular Flicker</h4>
   <p>
-    HTML5 Boilerplate is a professional front-end template for building fast, robust, and adaptable web apps or sites.
+    search for images below!
   </p>
 </div>
 <div class="well">
+  <form>
+    <h1>Search:</h1>
+    <input ng-model="userInput">
+    <button type="submit" ng-click="search(userInput)">submit</button>
+  </form>
+  <p>{{custom}}</p>
   <ul>
     <li ng-repeat="thing in awesomeThings">
       <a>{{thing}}</a>

@@ -19,13 +19,13 @@ angular.module('yeoAppApp')
       'Mangos'
     ];
     $scope.search  = function(custom) {
-      var flickrAPI = "http://api.flickr.com/services/feeds/photos_public.gne";
-      flickrAPI = flickrAPI + "?" + "&tags=" + encodeURIComponent(custom) + "&format=json";
+      var flickrAPI = 'http://api.flickr.com/services/feeds/photos_public.gne';
+      flickrAPI = flickrAPI + '?' + '&tags=' + encodeURIComponent(custom) + '&format=json';
       console.log(flickrAPI);
-      $http.get(flickrAPI).
+      $http.jsonp(flickrAPI).
       then(function(data) {
       $scope.posts = data;
-    })
+    });
 
       // $http.jsonp(flickrAPI, {jsonpCallbackParam: 'callback'})
       //   .then(function(data) {

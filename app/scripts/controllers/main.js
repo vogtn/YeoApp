@@ -7,8 +7,11 @@
  * # MainCtrl
  * Controller of the yeoAppApp
  */
+angular.module('yeoAppApp').config(function($sceDelegateProvider) {
+  $sceDelegateProvider.resourceUrlWhitelist(['**']);
+});
 angular.module('yeoAppApp')
-  .controller('MainCtrl', function ($scope) {
+  .controller('MainCtrl', function ($scope, $http) {
     $scope.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
@@ -16,6 +19,18 @@ angular.module('yeoAppApp')
       'Mangos'
     ];
     $scope.search  = function(custom) {
-      $scope.custom = custom;
+      var flickrAPI = "http://api.flickr.com/services/feeds/photos_public.gne";
+      flickrAPI = flickrAPI + "?" + "&tags=" + encodeURIComponent(custom) + "&format=json";
+      console.log(flickrAPI);
+      $http.get(flickrAPI).
+      then(function(data) {
+      $scope.posts = data;
+    })
+
+      // $http.jsonp(flickrAPI, {jsonpCallbackParam: 'callback'})
+      //   .then(function(data) {
+      //     console.log(data);
+      //     $custom.data = data;
+      // });
     };
   });
